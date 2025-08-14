@@ -1,0 +1,48 @@
+*{
+    font-family: Arial, Helvetica, sans-serif; /*mudando a tipografia da pagina inteira*/
+    margin: 0; /*zerando margens*/
+    padding: 0; /*zerando espacamento*/
+    box-sizing: border-box; /*encaixa o texto no tamanho da borda da caixinha*/
+}
+
+body {
+    background-color: #5d4d37; /*muda a cor de fundo*/
+    color: #969696; /*muda a cor da fonte dos textos*/
+    padding: 50px;
+}
+
+.banner { /*para chamar class precisa de .*/
+    background-image: linear-gradient(180deg, rgba(138, 177, 255, 0), rgba(255, 227, 141, 0.5)) ,url("baixados.gif");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    padding: 40px;
+    text-align: start;
+    color: blanchedalmond;
+    margin: 20px;
+    border-radius: 15px;
+}
+
+.banner p { 
+    margin: 5px 0 0;
+    color: rgb(255, 255, 255);
+}
+
+.cafe figure img{
+    background-color: aqua;
+    border-radius: 15px;
+}
+
+.botao{
+    background-color: rgb(131, 93, 62); 
+    border: none; 
+    padding: 10px 15px; 
+    border-radius: 6px; 
+    color: #ffffff;
+}
+
+.botao:hover { 
+    cursor: pointer; 
+    background-color: rgba(252, 228, 143, 0.101);
+}

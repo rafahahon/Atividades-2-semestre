@@ -1,0 +1,99 @@
+div img {
+    height: 50px;
+    width: 60px;
+}
+
+.div-flex {
+    margin: 15px;
+    background-color: rgb(159, 255, 255);
+    display: flex;
+}
+
+.espacado1 {
+    justify-content: space-between;
+}
+
+.espacado2 {
+    justify-content: space-around;
+}
+
+.espacado3 {
+    justify-content: center;
+}
+
+.espacado4 {
+    justify-content: end;
+}
+
+.espacado5 {
+    justify-content: space-between;
+}
+
+.espacado5 div {
+    margin: 0px;
+    background-color: yellow;
+}
+
+.espacado6 {
+    justify-content: space-between;
+}
+
+.espacado6 div {
+    margin: 0px;
+    width: 30%;
+    background-color: yellow;
+    display: flex;
+    justify-content: space-between;
+}
+
+.espacado7 {
+    justify-content: space-between;
+}
+
+.espacado7 div {
+    margin: 0px;
+    width: 10;
+    background-color: yellow;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.espacado8 {
+    justify-content: space-evenly;
+}
+
+.espacado8 .amarelo1{
+    margin: 0px;
+    width: 10;
+    background-color: yellow;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.espacado8 .amarelo2{
+    margin: 0px;
+    width: 10;
+    background-color: yellow;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.espacado9 {
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.espacado9 .amarelo1{
+    margin: 0px;
+    background-color: yellow;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.espacado9 .amarelo2{
+    margin: 0px;
+    background-color: yellow;
+    display: flex;
+    justify-content: flex-start;
+}
+

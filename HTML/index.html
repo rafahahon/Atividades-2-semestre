@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu primeiro HTML</title>
+</head>
+<body>
+    <h1 id="sobre">Hello World</h1>
+    <h2>Aqui tem um h2</h2>
+    <h3>Aqui tem um h3</h3>
+    <p>Esse aqui e um paragrafo de texto</p>
+    <p>Um paragrafo com <em>enfase</em></p>
+    <p>Outro paragrafo com <strong>enfase</strong></p>
+    <p>H<sub>2</sub>0</p>
+    <p>10<sup>2</sup> = 100</p>
+    <!-- UM COMENTARIO -->
+     <a href="#sobre">Sobre</a>
+     <a href="Floral.pdf" download>Baixar o PDF</a>
+     <img src="gatinho.webp" alt="Imagem de um gatinho" width="200px">
+
+     <figure>
+        <img src="gatinho.webp" alt="Imagem de um gatinho" height="200px">
+        <figcaption>Imagem de um gatinho em fundo rosa</figcaption>
+     </figure>
+     <video controls width="480">
+        <source src="apresentacao.mp4" type="video/mp4">
+     </video>
+
+     <!-- Lista nao ordenada -->
+     <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+     </ul>
+
+     <!-- Lista ordenada -->
+      <ol>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+      </ol>
+
+      <form>
+        <label for="nome">Nome</label>
+        <input id="nome" type="text" required>
+
+        <label for="email">Email</label>
+        <input id="email" type="email" name="" id="" placeholder="email@email.com">
+
+        <label>Tipo</label>
+        <label>
+            <input type="radio" name="" id="" checked>
+            Aluno
+        </label>
+        <label >
+            <input type="radio" name="" id="">
+            Docente
+        </label>
+        
+        <label for="">Interesses</label>
+        <select name="" id="" multiple>
+            <option value="HTML">HTML</option>
+            <option value="CSS">CSS</option>
+            <option value="Banco de dados">Banco de dados</option>
+        </select>
+
+        <label for="arquivo">Anexar arquivo</label>
+        <input type="file" name="" id="arquivo">
+
+        <label for="senha">Senha</label>
+        <input type="password" name="" id="" required>
+
+        <button type="submit">Enviar</button>
+      </form>
+</body>
+</html>

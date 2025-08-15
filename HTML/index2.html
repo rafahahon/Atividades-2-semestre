@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dead by daylight</title>
+</head>
+<body>
+    <h1>Olá, seja bem-vindo!</h1>
+    <p>Por favor, responda se você joga de killer ou survivor.</p>
+
+    <form>
+        <label>Eu jogo de: </label>
+        <label>
+            <input type="radio" name="" id="">
+            Killer
+        </label>
+        <label >
+            <input type="radio" name="" id="">
+            Survivor <br><br>
+        </label>
+
+        <label for="">Se sua resposta foi killer, qual(is) você mais utiliza?</label>
+        <br>
+        <select name="" id="" multiple>
+            <option value="Huntress">Huntress</option>
+            <option value="Wraith">Wraith</option>
+            <option value="Spirit">Spirit</option>
+            <option value="Springtrap">Springtrap</option>
+            <option value="The Ghoul">The Ghoul</option>
+            <option value="Nemesis">Nemesis</option>
+        </select>
+        <br><br>
+        <label for="">Se sua resposta foi survivor, qual(is) você mais utiliza?</label>
+        <br>
+        <select name="" id="" multiple>
+            <option value="Nea">Nea</option>
+            <option value="Bill">Bill</option>
+            <option value="Feng">Feng</option>
+            <option value="Mikaela">Mikaela</option>
+            <option value="Jane">Jane</option>
+            <option value="Alan">Alan</option>
+        </select>
+
+        <br>
+        <p>Para continuar, por favor faça login.</p>
+        <label for="email">Email</label>
+        <input id="email" type="email" name="" id="" placeholder="email@email.com" required>
+        <br><br>
+        <label for="senha">Senha</label>
+        <input type="password" name="" id="" required>
+        <button type="submit">Enviar</button>
+        <br><br>
+        <p>Na sua opinião, qual a skin mais bonita do jogo?</p>
+        <label for="skin"></label>
+        <input id="skin" type="text">
+    </form>    
+
+    <br>
+    <p>Se sua resposta não foi a Tomie, você está proibido de jogar Dbd pra sempre!</p>
+    <figure> 
+        <img src="Spirit.webp" alt="skinSpirit" height="200px">
+        <figcaption>Imagem da skin mais linda de todos os tempos</figcaption>
+     </figure>
+
+     <br>
+     <p>Espera aí! Você não conhece a coleção de skins mais assustadora e icônica do jogo!? Pois vai conhecer agora!</p>
+     <video controls width="200px">
+        <source src="videoplayback.mp4" type="video/mp4">
+     </video>
+
+    <br>
+    <p>Vamos rankear as skins dos killers!</p>
+    <ol>
+        <li>Tomie</li>
+        <li>Miss Fuchi</li>
+        <li>Half spirits torment</li>
+        <li>Souichi</li>
+        <li>Hikizuri</li>
+      </ol>
+    <br>
+    <p>Agora vamos rankear as skins dos survivors!</p>
+    <ol>
+        <li>Puppet</li>
+        <li>Tsukiko</li>
+        <li>Terumi</li>
+      </ol>
+
+    <br>
+    <form>
+        <fieldset>
+            <legend>Feedback</legend>
+            <label for="name">Nome</label>
+            <input type="text"> <br>
+            <label for="email">Email</label>
+            <input type="text" placeholder="email@email.com"> <br>
+            <label for="comentarios">Comentarios: <br></label>
+            <textarea name="" id="" rows="4" cols="50" placeholder="Digite seus comentarios aqui..."></textarea><br>
+            <button onclick="alert('FEEDBACK ENVIADO')">Envie o feedback</button>
+            
+        </fieldset>
+    </form>
+</body>
+</html>

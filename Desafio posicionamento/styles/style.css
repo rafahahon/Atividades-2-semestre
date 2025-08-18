@@ -79,8 +79,10 @@ div img {
 }
 
 .espacado9 {
+    height: 200px;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
 .espacado9 .amarelo1{
@@ -96,4 +98,27 @@ div img {
     display: flex;
     justify-content: flex-start;
 }
+
+.espacado10 {
+    height: 400px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.emcima {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(168, 91, 240, 0.881);
+}
+
+.embaixo {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(168, 91, 240, 0.881);
+}
+
+.amarelo10, .fantasmaehipopotamo {
+    background-color: yellow;
+}
+
 

@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    height: 20vh; /*porcentagem da tela que esta sendo ocupada*/
+    background-color: rgb(169, 89, 255);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+    align-items: center;
+}
+
+.logo {
+    width: 10%;
+    height: 60%;
+    background-color: #fff;
+}
+
+nav {
+    width: 30%;
+    height: 60%;
+    background-color: #fff;
+}
+
+.principal {
+    display: flex;
+    justify-content: space-between;
+    height: 60vh; /*porcentagem da tela que esta sendo ocupada*/
+}
+
+aside {
+    width: 30vw; /*porcentagem da largura da tela que esta sendo ocupada*/
+    background-color: rgb(145, 49, 249);
+}
+
+main {
+    width: 70vw; /*70 + 30 = 100 entao ocupamos 100% da tela*/
+    background-color: rgb(106, 11, 194);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+section {
+    height: 20vh;
+    background-color: rgb(133, 89, 255);
+    margin-bottom: 20px;
+    width: 50%; /*porcentagem em relacao ao pai*/
+}
+
+footer {
+    background-color: rgb(59, 0, 121);
+    height: 20vh;
+}

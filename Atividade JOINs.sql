@@ -8,31 +8,41 @@ GO
 
 -- Criando tabelas
 CREATE TABLE Agencia(
-	IdAgencia INT PRIMARY KEY,
-	Nome NVARCHAR(30) UNIQUE 
+	IdAgencia INT,
+	Nome NVARCHAR(30) UNIQUE,
+	CONSTRAINT Pk_Agencia PRIMARY KEY (IdAgencia)
 );
 GO
 
 CREATE TABLE Carro(
-	IdCarro INT PRIMARY KEY,
+	IdCarro INT,
 	Placa NVARCHAR(10) UNIQUE,
-	IdAgencia INT FOREIGN KEY REFERENCES Agencia(IdAgencia)
+	CONSTRAINT Pk_Carro PRIMARY KEY (IdCarro),
+	IdAgencia INT,
+	CONSTRAINT Fk_Carro_Agencia FOREIGN KEY (IdAgencia)
+	REFERENCES Agencia(IdAgencia)
 );
 GO
 
 CREATE TABLE Cliente(
-	IdCliente INT PRIMARY KEY,
+	IdCliente INT,
 	Nome NVARCHAR(20),
-	CNH NVARCHAR(20) UNIQUE
+	CNH NVARCHAR(20) UNIQUE,
+	CONSTRAINT Pk_Cliente PRIMARY KEY (IdCliente)
 );
 GO
 
 CREATE TABLE Locacao(
-	IdLocacao INT PRIMARY KEY,
-	IdCarro INT FOREIGN KEY REFERENCES Carro(IdCarro),
-	IdCliene INT FOREIGN KEY REFERENCES Cliente(IdCliente),
+	IdLocacao INT,
+	IdCarro INT,
+	CONSTRAINT Fk_Carro_Locacao FOREIGN KEY (IdCarro)
+	REFERENCES Carro(IdCarro),
+	IdCliente INT,
+	CONSTRAINT Fk_Cliente_Locacao FOREIGN KEY (IdCliente)
+	REFERENCES Cliente(IdCliente),
 	Retirada DATE,
-	Devolucao DATE
+	Devolucao DATE,
+	CONSTRAINT Pk_Locacao PRIMARY KEY (IdLocacao)
 );
 GO
 
@@ -103,4 +113,61 @@ SELECT c.Nome AS NomeCLiente, ca.IdCarro, ca.Placa
 FROM Cliente c
 CROSS JOIN Carro ca;
 
+-- Utilizando novos comandos
+-- Atualizando atributo especifico
+UPDATE Agencia SET Nome = 'CarPark'
+WHERE IdAgencia = 4565;
 
+-- Alterando tamanho do tipo de dado
+ALTER TABLE Agencia
+ALTER COLUMN Nome NVARCHAR(50);
+
+-- Adicionando nova coluna 
+ALTER TABLE Locacao
+ADD Valor DECIMAL(10, 2);
+
+-- Atualizando valores
+UPDATE Locacao SET Valor = '109.90'
+WHERE IdLocacao = 1;
+
+-- Renomeando uma coluna
+EXEC sp_rename 'Locacao.IdCliene', 'IdCliente', 'COLUMN'
+
+-- Apagando a chave primaria da tabela Locacao
+ALTER TABLE Locacao
+DROP CONSTRAINT Pk_Locacao;
+
+-- Recriando a chave primaria
+ALTER TABLE Locacao
+ADD CONSTRAINT Pk_Locacao PRIMARY KEY (IdLocacao);
+
+-- Alterando tabela Carro (criando e recriando fk e pk, removendo restricoes para deletar)
+-- ON DELETE CASCADE
+-- Removendo FK
+ALTER TABLE Carro
+DROP CONSTRAINT Fk_Carro_Agencia
+
+ALTER TABLE Locacao
+DROP CONSTRAINT Fk_Carro_Locacao;
+
+-- Recriando FK com ON DELETE CASCADE
+ALTER TABLE Carro
+ADD CONSTRAINT Fk_Carro_Agencia
+FOREIGN KEY (IdAgencia) REFERENCES Agencia(IdAgencia)
+ON DELETE CASCADE
+
+ALTER TABLE Locacao
+ADD CONSTRAINT Fk_Carro_Locacao
+FOREIGN KEY (IdCarro) REFERENCES Carro(IdCarro)
+ON DELETE CASCADE
+
+SELECT * FROM Carro;
+DELETE Carro
+WHERE IdCarro = 23;
+SELECT * FROM Carro;
+
+-- Selects
+SELECT * FROM Agencia;
+SELECT * FROM Carro;
+SELECT * FROM Cliente;
+SELECT * FROM Locacao;

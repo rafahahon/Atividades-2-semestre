@@ -137,4 +137,8 @@ FROM Leitor;
 
 -- GETDATE
 -- dia e horario atual
+-- DA INSTANCIA ONDE ESTA SENDO EXECUTADA
 SELECT GETDATE();
+
+SELECT SYSDATETIMEOFFSET()
+AT TIME ZONE 'E. South America Standard Time';

@@ -142,3 +142,140 @@ SELECT GETDATE();
 
 SELECT SYSDATETIMEOFFSET()
 AT TIME ZONE 'E. South America Standard Time';
+
+-- DATEADD
+-- Adiciona um tempo a mais dentro de uma data
+-- YEAR, MONTH, DAY, WEEK
+SELECT id_emprestimo, data_emprestimo,
+DATEADD(YEAR, 7, data_emprestimo) AS PrevisaoDevolucao 
+FROM Emprestimo;
+
+-- Diminuir o tempo
+SELECT id_emprestimo, data_emprestimo,
+DATEADD(MONTH, -1, data_emprestimo) AS PrevisaoDevolucao 
+FROM Emprestimo;
+
+-- DATEDIFF: diferenca entre datas
+SELECT id_emprestimo, data_emprestimo, data_devolucao,
+DATEDIFF(DAY, data_emprestimo, ISNULL(data_devolucao, GETDATE()))
+AS DiasComLivro
+FROM Emprestimo;
+-- se data_devolucao estiver vazio, ele acrescenta o GETDATE para inserir a data atual e comprar com a data emprestimo
+
+-- FORMAT
+-- formatar datas
+SELECT * FROM Emprestimo;
+
+SELECT
+FORMAT(data_emprestimo, 'dd/MM/yyyy') AS Emprestimo,
+FORMAT(data_devolucao, 'dd/MM/yy') AS Devolucao
+FROM Emprestimo;
+
+-- Extrair ano, mes e dia de uma data
+SELECT YEAR(data_emprestimo) AS Ano,
+MONTH(data_emprestimo) AS Mes,
+DAY(data_emprestimo) AS Dia
+FROM Emprestimo;
+
+SET LANGUAGE Portuguese;
+
+-- DATEPART / DATANAME
+SELECT DATEPART(YEAR, data_emprestimo) AS Ano,
+	   DATEPART(WEEKDAY, data_emprestimo) AS DiaSemana,
+	   DATENAME(WEEKDAY, data_emprestimo) AS NomeDiaSemana,
+	   DATENAME(MONTH, data_emprestimo) AS NomeMes
+FROM Emprestimo;
+
+-- OPERADORES DE COMPARACAO
+
+-- igualdade =
+SELECT titulo, ano
+FROM Livro
+WHERE ano = 2000;
+
+-- diferente NOT LIKE
+SELECT nome, email
+FROM Leitor
+WHERE email NOT LIKE 'kes%';
+
+SELECT titulo, ano
+FROM Livro
+WHERE ano <> 2000;
+
+SELECT nome, email
+FROM Leitor
+WHERE email != 'kes%';
+
+-- maior que >
+SELECT titulo, ano
+FROM Livro
+WHERE ano > 1900;
+
+-- menor que <
+SELECT titulo, ano
+FROM Livro
+WHERE ano < 1900;
+
+-- maior ou igual >=
+SELECT id_emprestimo, data_emprestimo
+FROM Emprestimo
+WHERE data_emprestimo >= '2025-09-01';
+
+-- menor ou igual <=
+SELECT id_emprestimo, data_emprestimo
+FROM Emprestimo
+WHERE data_emprestimo <= '2025-08-31';
+
+-- OPERADORES LOGICOS
+
+-- AND (e)
+SELECT Emprestimo.id_Emprestimo, Leitor.nome, Emprestimo.data_emprestimo, Emprestimo.data_devolucao
+FROM Emprestimo
+JOIN Leitor ON Leitor.id_Leitor = Emprestimo.id_Leitor
+WHERE MONTH(Emprestimo.data_emprestimo) = 9
+AND YEAR(Emprestimo.data_emprestimo) = 2025
+-- Duas condicoes verdadeiras
+
+-- OR (ou)
+SELECT l.titulo, l.ano, a.nome
+FROM Livro l
+JOIN Autor a ON a.id_Autor = l.id_Autor
+WHERE a.nome = 'Machado de Assis'
+OR a.nome = 'Clarice Lispector';
+-- Uma condicao sendo verdadeira, ja retorna o valor
+
+-- NOT (negacao)
+SELECT l.titulo, l.ano, a.nome
+FROM Livro l
+JOIN Autor a ON a.id_Autor = l.id_Autor
+WHERE NOT a.nome = 'Shakespeare';
+
+-- OPERADORES ESPECIAIS
+
+-- BETWEEN (entre)
+SELECT titulo, ano 
+FROM Livro
+WHERE ano BETWEEN 1800 AND 2000;
+
+-- IN (verfica uma lista de valores)
+SELECT * FROM Autor
+WHERE nome IN ('Machado de Assis', 'Shakespeare');
+
+-- LIKE
+SELECT titulo
+FROM Livro
+WHERE titulo LIKE 'O%';
+-- Porcentagem antes da letra - existe texto antes da letra 
+-- Porcentagem depois da letra - existe texto depois da letra
+-- Porcentagem entre a letra - existe texto antes e depois da letra
+
+-- IS NULL
+-- Registros vazios
+SELECT id_emprestimo, id_livro, data_emprestimo
+FROM Emprestimo 
+WHERE data_devolucao IS NULL;
+
+-- IS NOT NULL
+SELECT id_emprestimo, id_livro, data_emprestimo
+FROM Emprestimo 
+WHERE data_devolucao IS NOT NULL;

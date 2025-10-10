@@ -20,3 +20,18 @@ CREATE TABLE Usuario (
 	CONSTRAINT FK_Usuario_Regra FOREIGN KEY (RegraId) REFERENCES Regra(IdRegra)
 );
 GO
+
+INSERT INTO Regra (Nome) VALUES
+('Aluno'),
+('Professor');
+
+SELECT * FROM Regra;
+
+DECLARE @RegraId INT; -- Declarando variavel RegraId
+SET @RegraId = (SELECT IdRegra FROM Regra WHERE Nome = 'Aluno') 
+
+INSERT INTO Usuario (NomeCompleto, Email, Senha, FotoURL, RegraId)
+VALUES 
+('Usuario1', 'usuario@senai.com', HASHBYTES('SHA2_256', 'senha123'), 'http://aaaaaaa.png', @RegraId)
+
+SELECT * FROM Usuario;
